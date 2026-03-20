@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felipe Portfolio - Content Manager</title>
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./mpProject/index.css">
+  <script type="module" src="./randomWords.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Marketplace Project</h1>
+  </header>
+
+  <main>
+    <form action="http://localhost:8080/projects" method="post" id="projectForm" enctype="multipart/form-data">
+       <h2>About the Project</h2>
+      <label for="name">Name</label>
+      <input type="text" name="name" placeholder="Project Name" maxlength="24" required>
+
+      <label for="namespace">Namespace</label>
+      <input type="text" name="namespace" placeholder="example:namespace" maxlength="8" required>
+
+      <label for="description" class="large-textbox">Description</label>
+      <textarea name="description" cols="30" rows="10" placeholder="Description"></textarea>
+
+      <label for="releaseDate">Release Date</label>
+      <input type="date" name="releaseDate" required>
+
+      <label for="logoImage">Choose Project Logo</label>
+      <input type="file" name="logoImage" accept="image/png" required>
+
+      <label for="heroImage">Choose Project Hero Image</label>
+      <input type="file" name="heroImage" accept="image/png" required>
+
+      <label for="publisher">Project Publisher</label>
+      <input type="text" name="publisher" maxlength="24" required>
+
+
+      <h2>About Me</h2>
+      <label for="role">Role</label>
+      <input type="text" name="role" maxlength="24"" required>
+      
+      
+      <input id="submit" type="submit" value="Submit" formenctype="multipart/form-data">
+    </form>
+  </main>
+</body>
+</html>

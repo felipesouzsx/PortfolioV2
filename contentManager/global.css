@@ -1,0 +1,15 @@
+:root {
+  display: flex;
+  justify-content: center;
+
+  background-color: black;
+  color: gray;
+}
+
+body {
+  width: min(110ch, 100% - 2rem);
+}
+
+textarea {
+  resize: none;
+}
