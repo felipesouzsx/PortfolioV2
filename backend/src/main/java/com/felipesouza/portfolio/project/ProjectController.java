@@ -1,10 +1,8 @@
-package com.felipesouza.portfolio.controller;
+package com.felipesouza.portfolio.project;
 
 
 import com.felipesouza.exceptions.ProjectNotFoundException;
-import com.felipesouza.portfolio.service.ImageHandler;
-import com.felipesouza.portfolio.service.ProjectService;
-import com.felipesouza.portfolio.infrastructure.entities.Project;
+import com.felipesouza.util.ImageHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,12 +21,10 @@ public class ProjectController {
 
 
     @PostMapping(consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Void> postProject(@ModelAttribute ProjectFormData formData) {
-        Project newProject = Project.fromDTO(formData.toDTO());
-
-        ImageHandler.saveImage(formData.getLogoImage(), newProject.getName(), "logo.png");
-        ImageHandler.saveImage(formData.getHeroImage(), newProject.getName(), "hero.png");
-        service.saveProject(newProject);
+    public ResponseEntity<Void> postProject(@ModelAttribute ProjectAddRequest request) {
+        ImageHandler.saveImage(request.logoImage(), request.name(), "logo.png");
+        ImageHandler.saveImage(request.heroImage(), request.name(), "hero.png");
+        service.addProject(request);
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -53,13 +49,13 @@ public class ProjectController {
     }
 
     @PutMapping()
-    public ResponseEntity<Void> updateProject(@RequestParam String namespace, @RequestBody ProjectFormData formData) {
+    public ResponseEntity<Void> updateProject(@RequestParam String namespace, @RequestBody ProjectAddRequest newProject) {
         if (isNamespaceInvalid(namespace)) {
             return ResponseEntity.badRequest().build();
         }
 
         try {
-            service.updateProjectByNamespace(namespace, formData.toDTO());
+            service.updateProjectByNamespace(namespace, newProject);
             return ResponseEntity.ok().build();
         } catch (ProjectNotFoundException e) {
             System.out.println(e.getMessage());

@@ -1,4 +1,4 @@
-package com.felipesouza.portfolio.service;
+package com.felipesouza.util;
 
 
 // Declared class as "final" so it can't be subclassed

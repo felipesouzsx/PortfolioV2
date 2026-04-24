@@ -1,4 +1,4 @@
-package com.felipesouza.portfolio.service;
+package com.felipesouza.util;
 
 import org.springframework.web.multipart.MultipartFile;
 
