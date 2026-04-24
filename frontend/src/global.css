@@ -1,0 +1,30 @@
+:global(body) {
+  background-color: black;
+  color: var(--font-color);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+:global(h1) {
+  font-size: var(--h1-font-size);
+}
+:global(h2) {
+  font-size: var(--h2-font-size);
+}
+:global(p) {
+  font-size: var(--p-font-size);
+}
+:global(a) {
+  all: unset;
+  text-decoration: none;
+  color: inherit;
+  place-self: center;
+  cursor: pointer;
+  transition: 200ms;
+  border-bottom: 1px solid transparent;
+}
+:global(a:hover),
+:global(a:focus) {
+  border-bottom: 1px solid var(--font-color);
+}
