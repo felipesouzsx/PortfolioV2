@@ -1,4 +1,4 @@
-package com.felipesouza.portfolio.controller;
+package com.felipesouza.portfolio.project;
 
 import java.util.Date;
 
