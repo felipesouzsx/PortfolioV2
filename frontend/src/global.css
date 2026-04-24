@@ -4,6 +4,11 @@
   font-family: 'JetBrains Mono', monospace;
   font-weight: 100;
   font-size: 1rem;
+  scrollbar-width: 0; /* Works on newer browsers */
+}
+/* Works on older Safari and Chromium */
+:global(body::-webkit-scrollbar) {
+  display: none;
 }
 
 :global(h1) {
