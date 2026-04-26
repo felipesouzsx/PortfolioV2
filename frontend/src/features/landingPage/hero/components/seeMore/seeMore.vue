@@ -5,6 +5,7 @@
 <style scoped>
 p {
   position: absolute;
+  z-index: 1;
 
   /* Centering */
   transform: translate(-50%, 0);
