@@ -1,0 +1,21 @@
+section {
+  background: linear-gradient(#1c211a 0%, #0e110d 50%, #190b03 100%);
+}
+
+.section-content {
+  --gap: 1rem;
+  gap: var(--gap);
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+  height: fit-content;
+}
+
+@media screen and (max-width: 1000px) {
+  .projects {
+    flex-direction: column;
+  }
+}
