@@ -11,6 +11,6 @@
   </header>
 </template>
 
-<style>
+<style scoped>
 @import url('./heroHeader.css');
 </style>
