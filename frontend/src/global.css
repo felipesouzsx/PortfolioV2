@@ -10,6 +10,19 @@
 :global(body::-webkit-scrollbar) {
   display: none;
 }
+:global(section) {
+  display: flex;
+  justify-content: center;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+}
+:global(.section-content) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 2rem;
+  width: var(--website-width);
+}
 
 :global(h1) {
   font-size: var(--h1-font-size);

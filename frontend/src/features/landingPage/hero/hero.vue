@@ -40,9 +40,11 @@ onMounted(() => {
 
 <template>
   <section ref="cubemap-container">
-    <HeroHeader></HeroHeader>
+    <div class="section-content">
+      <HeroHeader></HeroHeader>
+    </div>
+    <SeeMore></SeeMore>
   </section>
-  <SeeMore></SeeMore>
 </template>
 
 <style scoped>

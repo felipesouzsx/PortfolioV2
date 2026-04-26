@@ -6,11 +6,11 @@ import Button from '../button/button.vue'
   <nav>
     <p id="name-title">Felipe Souza ></p>
 
-    <section id="links">
+    <div id="links">
       <a href="http://projects">Projects.</a>
       <a href="">About.</a>
       <Button>Contact Me</Button>
-    </section>
+    </div>
   </nav>
 </template>
 
