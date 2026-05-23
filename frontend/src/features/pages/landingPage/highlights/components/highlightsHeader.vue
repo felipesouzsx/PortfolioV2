@@ -8,7 +8,7 @@ import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
       > Many projects, many lessons. <br />
       > Here are the ones I value most:
     </p>
-    <SectionTitle flip="true">HIGHLIGHTS</SectionTitle>
+    <SectionTitle flip="true" checkerboard="right">HIGHLIGHTS</SectionTitle>
   </header>
 </template>
 

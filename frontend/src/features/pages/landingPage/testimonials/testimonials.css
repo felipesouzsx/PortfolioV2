@@ -1,0 +1,13 @@
+#testimonial-container {
+  --gap: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap);
+
+  flex-wrap: wrap;
+}
+
+section {
+  background: linear-gradient(#190b03 0%, #110d0e 50%, #213a53 100%);
+}

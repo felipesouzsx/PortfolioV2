@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import card from '../card/card.vue'
 import { ref, computed } from 'vue'
 
 const props = defineProps(['project_data'])
@@ -14,7 +15,7 @@ const getImage = computed(() => {
 </script>
 
 <template>
-  <div id="container">
+  <card>
     <img :src="getImage" :alt="imgAlt" />
     <div class="info-container">
       <h1>Publisher</h1>
@@ -26,7 +27,7 @@ const getImage = computed(() => {
         <li v-for="role in projectRoles">{{ role }}</li>
       </ul>
     </div>
-  </div>
+  </card>
 </template>
 
 <style scoped>

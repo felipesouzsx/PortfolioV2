@@ -3,7 +3,7 @@ import { onMounted, useTemplateRef } from 'vue'
 import { Cubemap } from '@hatchibombotar/cubemap'
 
 import HeroHeader from './components/header/heroHeader.vue'
-import SeeMore from './components/seeMore/seeMore.vue'
+import SeeMore from './components/seeMore.vue'
 
 function createPanorama(container: HTMLElement) {
   const Panorama = new Cubemap(

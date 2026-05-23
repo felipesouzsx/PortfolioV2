@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HighlightsHeader from './components/header/highlightsHeader.vue'
-import Project from '../../common/project/project.vue'
+import HighlightsHeader from './components/highlightsHeader.vue'
+import Project from '@/features/common/project/project.vue'
 
 const highlightedProjects = [
   {

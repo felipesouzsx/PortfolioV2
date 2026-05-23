@@ -1,10 +1,15 @@
 <script setup lang="ts">
-const props = defineProps(['flip'])
+const { checkerboard = 'hidden' } = defineProps<{ checkerboard?: string }>()
+console.log(checkerboard)
 </script>
 
 <template>
-  <div id="container" :class="{ flip: props.flip == 'true' }">
-    <img src="/assets/common/whiteCheckerboardSmall.svg" alt="" />
+  <div id="container" :class="{ flip: checkerboard == 'right' }">
+    <img
+      :class="{ hidden: checkerboard == 'hidden' }"
+      src="/assets/common/whiteCheckerboardSmall.svg"
+      alt=""
+    />
     <h1>
       <slot></slot>
     </h1>
