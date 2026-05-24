@@ -2,16 +2,11 @@
 Using position: absolute so it sits on top of the panorama
 */
 header {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   z-index: 1;
 
   width: max-content;
   max-width: var(--website-width);
-  height: 100dvh;
+  height: 100%;
   place-self: center;
   align-content: center;
   user-select: none;

@@ -39,7 +39,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="cubemap-container">
+  <div id="cubemap" ref="cubemap-container"></div>
+  <section>
     <div class="section-content">
       <HeroHeader></HeroHeader>
     </div>
@@ -49,4 +50,8 @@ onMounted(() => {
 
 <style scoped>
 @import url('./hero.css');
+
+#cubemap {
+  position: absolute;
+}
 </style>
