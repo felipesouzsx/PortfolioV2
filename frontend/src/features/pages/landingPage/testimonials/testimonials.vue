@@ -19,6 +19,6 @@ import TestimonialsHeader from './components/testimonialsHeader.vue'
   </section>
 </template>
 
-<style>
+<style scoped>
 @import url('./testimonials.css');
 </style>

@@ -1,4 +1,10 @@
 :global(body) {
+  --nav-margin-top: 1rem;
+  --nav-height: 3rem;
+  --nav-padding-sides: 1rem;
+  --nav-padding-top: 0.5rem;
+
+  --full-nav-height: calc(var(--nav-margin-top) + var(--nav-height) + (var(--nav-padding-top) * 2));
   --p-font-size: 1rem;
   --h1-font-size: 4rem;
   --h2-font-size: 1rem;
@@ -30,9 +36,10 @@
 :global(.section-content) {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-bottom: 2rem;
+  justify-content: center;
   width: var(--website-width);
+
+  margin-top: var(--full-nav-height);
 }
 
 :global(h1) {

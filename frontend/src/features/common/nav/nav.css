@@ -8,12 +8,13 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  --padding-sides: 1rem;
-  --padding-top: 0.5rem;
-  padding: var(--padding-top) var(--padding-sides) var(--padding-top) var(--padding-sides);
-  margin-top: 1rem;
+  height: var(--nav-height);
 
-  width: calc(var(--website-width) - var(--padding-sides) * 2);
+  margin-top: var(--nav-margin-top);
+  padding: var(--nav-padding-top) var(--nav-padding-sides) var(--nav-padding-top)
+    var(--nav-padding-sides);
+
+  width: calc(var(--website-width) - var(--nav-padding-sides) * 2);
 
   cursor: default;
   user-select: none;
