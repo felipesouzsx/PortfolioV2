@@ -15,7 +15,7 @@ const getImage = computed(() => {
 </script>
 
 <template>
-  <card>
+  <card class="project">
     <img :src="getImage" :alt="imgAlt" />
     <div class="info-container">
       <h1>Publisher</h1>

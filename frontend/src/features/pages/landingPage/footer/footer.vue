@@ -23,10 +23,6 @@ section {
   background: linear-gradient(#0d131a 0%, #110d0e 50%, #000000 100%);
 }
 
-.section-content {
-  gap: 2rem;
-}
-
 #work-status {
   display: flex;
   gap: 2rem;

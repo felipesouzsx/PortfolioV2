@@ -38,8 +38,9 @@
   flex-direction: column;
   justify-content: center;
   width: var(--website-width);
-
+  margin: 2rem;
   margin-top: var(--full-nav-height);
+  justify-content: space-between;
 }
 
 :global(h1) {

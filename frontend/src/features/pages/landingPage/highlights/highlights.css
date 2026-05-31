@@ -4,18 +4,31 @@ section {
 
 .section-content {
   --gap: 1rem;
-  gap: var(--gap);
 }
 
 .projects {
   display: flex;
   flex-direction: row;
   gap: var(--gap);
-  height: fit-content;
+
+  flex-wrap: wrap;
+}
+
+.project {
+  width: calc((100% - var(--gap) * 2 - var(--card-padding) * 6) / 3);
+}
+
+.big-project {
+  width: calc((100% - var(--gap) - var(--card-padding) * 4) / 2);
 }
 
 @media screen and (max-width: 1000px) {
   .projects {
     flex-direction: column;
+  }
+
+  .project,
+  .big-project {
+    width: calc(100% - var(--card-padding) * 2);
   }
 }

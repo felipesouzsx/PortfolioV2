@@ -5,8 +5,8 @@ import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
 <template>
   <header>
     <p>
-      > Many projects, many lessons. <br />
-      > Here are the ones I value most:
+      &gt Many projects, many lessons. <br />
+      &gt Here are the ones I value most:
     </p>
     <SectionTitle flip="true" checkerboard="right">HIGHLIGHTS</SectionTitle>
   </header>
@@ -16,12 +16,7 @@ import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
 header {
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 1rem;
-
-  --margin: 2rem;
-  margin-top: var(--margin);
-  margin-bottom: var(--margin);
+  height: 100%;
 
   flex-wrap: wrap-reverse;
   justify-content: space-between;

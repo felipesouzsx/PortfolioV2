@@ -13,7 +13,11 @@ import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
 header {
   place-self: center;
   width: min-content;
-  padding-bottom: 4rem;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img {

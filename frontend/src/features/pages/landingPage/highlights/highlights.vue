@@ -2,7 +2,7 @@
 import HighlightsHeader from './components/highlightsHeader.vue'
 import Project from '@/features/common/project/project.vue'
 
-const highlightedProjects = [
+const projects = [
   {
     name: 'FURNITURE',
     publisher: 'XP GAMES',
@@ -34,9 +34,6 @@ const highlightedProjects = [
     roles: ['3D Artist'],
   },
 ]
-
-const projTopRow = highlightedProjects.slice(0, 2)
-const projBottomRow = highlightedProjects.slice(2, 5)
 </script>
 
 <template>
@@ -44,10 +41,11 @@ const projBottomRow = highlightedProjects.slice(2, 5)
     <div class="section-content">
       <HighlightsHeader></HighlightsHeader>
       <div class="projects">
-        <Project v-for="project in projTopRow" :project_data="project"></Project>
-      </div>
-      <div class="projects">
-        <Project v-for="project in projBottomRow" :project_data="project"></Project>
+        <Project
+          v-for="(project, index) in projects"
+          :class="{ 'big-project': index < 2 }"
+          :project_data="project"
+        ></Project>
       </div>
     </div>
   </section>

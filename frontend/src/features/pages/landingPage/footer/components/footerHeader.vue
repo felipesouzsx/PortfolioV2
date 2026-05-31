@@ -14,7 +14,7 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  gap: 1rem;
+  height: 100%;
 
   flex-wrap: wrap-reverse;
   justify-content: space-between;

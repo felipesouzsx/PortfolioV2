@@ -19,7 +19,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  height: 100%;
+  justify-content: center;
 }
 
 h1 {
