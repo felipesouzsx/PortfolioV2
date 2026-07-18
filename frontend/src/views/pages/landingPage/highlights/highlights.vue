@@ -1,19 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useProject } from '@/composables/useProject.ts'
 import HighlightsHeader from './components/highlightsHeader.vue'
-import Project from '@/view/common/project/project.vue'
+import project from '@/views/common/project/project.vue'
+import { onMounted } from 'vue'
 
-let projects = ref<Object[]>([])
-let loading = ref<boolean>(true)
+const { projects, loading, loadProjects } = useProject()
 
-fetch('http://localhost:8080/projects/simple')
-  .then(async (resp) => {
-    let json = await resp.json()
-    projects.value = json
-    loading.value = false
-    console.log(json)
-  })
-  .catch((e) => console.log(e))
+onMounted(loadProjects)
 </script>
 
 <template>
@@ -22,19 +15,19 @@ fetch('http://localhost:8080/projects/simple')
       <HighlightsHeader></HighlightsHeader>
 
       <div class="projects">
-        <Project
+        <project
           v-if="!loading"
           v-for="(project, index) in projects"
           :class="{ 'big-project': index < 2 }"
           :project_data="project"
-        ></Project>
+        ></project>
 
-        <Project
+        <project
           v-else
           v-for="index in 5"
           :class="{ 'big-project': index - 1 < 2 }"
           :project_data="{}"
-        ></Project>
+        ></project>
       </div>
     </div>
   </section>

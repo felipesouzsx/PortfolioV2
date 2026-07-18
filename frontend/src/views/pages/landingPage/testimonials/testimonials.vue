@@ -1,17 +1,18 @@
 <script setup lang="ts">
+import useTestimonial from '@/composables/useTestimonial.ts'
 import Testimonial from './components/testimonial/testimonial.vue'
 import TestimonialsHeader from './components/testimonialsHeader.vue'
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 
-let testimonials = ref<Object[]>([])
-let loaded = ref<boolean>(false)
+const { testimonials, loading, loadTestimonials } = useTestimonial()
+onMounted(loadTestimonials)
 </script>
 
 <template>
   <section>
     <div class="section-content">
       <TestimonialsHeader></TestimonialsHeader>
-      <div id="testimonial-container" v-if="loaded">
+      <div id="testimonial-container" v-if="!loading">
         <Testimonial v-for="data in testimonials" :data="data"></Testimonial>
       </div>
       <div id="testimonial-container" v-else>
