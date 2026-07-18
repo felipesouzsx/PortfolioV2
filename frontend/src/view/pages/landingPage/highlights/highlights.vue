@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import HighlightsHeader from './components/highlightsHeader.vue'
-import Project from '@/features/common/project/project.vue'
+import Project from '@/view/common/project/project.vue'
 
 let projects = ref<Object[]>([])
 let loading = ref<boolean>(true)

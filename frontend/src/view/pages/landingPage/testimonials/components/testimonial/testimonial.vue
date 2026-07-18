@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from '@/features/common/card/card.vue'
+import Card from '@/view/common/card/card.vue'
 
 const props = defineProps(['data'])
 const hasData = props.data instanceof Object && Object.keys(props.data).length > 0

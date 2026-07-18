@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
+import SectionTitle from '@/view/common/sectionTitle/sectionTitle.vue'
 </script>
 
 <template>
   <header>
-    <SectionTitle checkerboard="left">CONTACT</SectionTitle>
-    <p>Let's build something amazing &lt</p>
+    <p>
+      &gt Many projects, many lessons. <br />
+      &gt Here are the ones I value most:
+    </p>
+    <SectionTitle flip="true" checkerboard="right">HIGHLIGHTS</SectionTitle>
   </header>
 </template>
 
@@ -13,7 +16,6 @@ import SectionTitle from '@/features/common/sectionTitle/sectionTitle.vue'
 header {
   display: flex;
   align-items: center;
-  width: 100%;
   height: 100%;
 
   flex-wrap: wrap-reverse;
