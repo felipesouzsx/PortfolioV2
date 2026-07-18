@@ -1,27 +1,26 @@
 <script setup lang="ts">
 import card from '../card/card.vue'
-import { ref, computed } from 'vue'
 
 const props = defineProps(['project_data'])
-const projectName = props.project_data.name
-const projectPublisher = props.project_data.publisher
-const projectRoles = props.project_data.roles
-const imgSrc = ref(props.project_data.hero_url)
-const imgAlt = `${projectName} logo.`
+const hasData = props.project_data instanceof Object && Object.keys(props.project_data).length > 0
 
-const getImage = computed(() => {
-  return imgSrc.value
-})
+let projectRoles: string[]
+if (hasData) projectRoles = props.project_data.roles.split(',')
 </script>
 
 <template>
-  <card class="project">
-    <img :src="getImage" :alt="imgAlt" />
-    <div class="info-container">
+  <card class="project" :class="{ loading: !hasData }">
+    <img
+      :src="`https://images.felipemontsouza.com/${props.project_data.name}/hero.png`"
+      :alt="props.project_data.name + 'logo'"
+      v-if="hasData"
+    />
+
+    <div class="info-container" :class="{ hidden: !hasData }">
       <h1>Publisher</h1>
-      <p>{{ projectPublisher }}</p>
+      <p>{{ props.project_data.name }}</p>
     </div>
-    <div class="info-container">
+    <div class="info-container" :class="{ hidden: !hasData }">
       <h1>Worked as</h1>
       <ul>
         <li v-for="role in projectRoles">{{ role }}</li>

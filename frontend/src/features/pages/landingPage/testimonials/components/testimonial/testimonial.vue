@@ -1,31 +1,44 @@
 <script setup lang="ts">
 import Card from '@/features/common/card/card.vue'
+
+const props = defineProps(['data'])
+const hasData = props.data instanceof Object && Object.keys(props.data).length > 0
 </script>
 
 <template>
-  <Card>
-    <header>
-      <img src="/assets/landingPage/profilePicturePlaceholder.svg" alt="" />
+  <Card :class="{ loading: !hasData }">
+    <header v-if="hasData">
+      <img
+        :src="`https://images.felipemontsouza.com/testimonials/${props.data.author}`"
+        :alt="props.data.name"
+        v-if="hasData"
+      />
       <div>
-        <h1>JOHN DOE</h1>
-        <h2>Role @Studio</h2>
+        <h1>{{ props.data.author }}</h1>
+        <h2>{{ props.data.role }}<br />@{{ props.data.company }}</h2>
       </div>
     </header>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-      been the industry's standard dummy text ever since the 1500s.
-    </p>
+    <p v-if="hasData">{{ props.data.message }}</p>
   </Card>
 </template>
 
 <style scoped>
 .card {
-  width: calc((100% - var(--gap) * 2 - var(--card-padding) * 6) / 3);
+  aspect-ratio: 1/1;
+
+  width: calc((100% - var(--gap) * 3 - var(--card-padding) * 6) / 3);
+  min-height: calc((100% - var(--gap) * 2 - var(--card-padding) * 4) / 2);
 }
 
 header {
   display: flex;
   justify-content: space-between;
+}
+
+img {
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  height: 10ch;
 }
 
 h1,
@@ -35,6 +48,7 @@ h2 {
 
 h1 {
   font-size: 2rem;
+  text-align: right;
 }
 
 h2 {
@@ -42,6 +56,10 @@ h2 {
   text-align: end;
   font-weight: 100;
   opacity: 50%;
+}
+
+p {
+  text-align: justify;
 }
 
 @media screen and (max-width: 1000px) {

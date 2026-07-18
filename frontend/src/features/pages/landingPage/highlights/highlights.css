@@ -12,6 +12,7 @@ section {
   gap: var(--gap);
 
   flex-wrap: wrap;
+  height: 100%;
 }
 
 .project {

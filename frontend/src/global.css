@@ -8,7 +8,7 @@
   --p-font-size: 1rem;
   --h1-font-size: 4rem;
   --h2-font-size: 1rem;
-  --font-color: rgb(244, 239, 231);
+  --font-color: #f4efe7;
   --website-width: min(100ch, calc(100% - 3rem));
 
   --element-bg-color: rgba(43, 43, 43, 0.5);
