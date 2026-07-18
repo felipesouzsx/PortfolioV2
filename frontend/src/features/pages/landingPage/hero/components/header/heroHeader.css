@@ -1,0 +1,38 @@
+/* 
+Using position: absolute so it sits on top of the panorama
+*/
+header {
+  z-index: 1;
+
+  width: max-content;
+  max-width: var(--website-width);
+  height: 100%;
+  place-self: center;
+  align-content: center;
+  user-select: none;
+}
+
+h1 {
+  letter-spacing: 0.25rem;
+  margin: 0;
+}
+h2 {
+  font-weight: lighter;
+  letter-spacing: 0.25rem;
+  text-align: center;
+}
+
+#logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  height: min-content;
+}
+
+#logo > img {
+  aspect-ratio: 3/7;
+  height: calc(var(--h1-font-size) * 2.05);
+  vertical-align: middle;
+}

@@ -1,0 +1,44 @@
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  width: fit-content;
+
+  --font-size: var(--h1-font-size);
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--font-size);
+}
+
+img {
+  aspect-ratio: 1/1;
+  height: calc(var(--font-size) * 0.8);
+}
+
+.hidden {
+  display: none;
+}
+
+.flip {
+  flex-direction: row-reverse;
+}
+
+@media only screen and (max-width: 1000px) {
+  #container {
+    --font-size: 3rem;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #container {
+    justify-content: space-evenly;
+  }
+}

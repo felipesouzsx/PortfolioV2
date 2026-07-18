@@ -1,7 +1,6 @@
 package com.felipesouza.portfolio.project;
 
 
-import com.felipesouza.util.InputHandler;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
@@ -22,6 +21,9 @@ public class ProjectEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(name="highlightId", nullable = false)
+    private int highlightId = 0;
+
     @Column(name="name", nullable = false)
     private String name;
     @Column(name="description", nullable = false)
@@ -34,13 +36,13 @@ public class ProjectEntity {
     @Column(name="releaseDate", nullable = false)
     private Date releaseDate;
 
-    @Column(name="role", nullable = false)
-    private String role;
+    @Column(name="roles", nullable = false)
+    private String roles;
 
 
     @Override
     public String toString() {
-        return String.format("[ProjectEntity %s]\n\tdescription = %s\n\tid = %s\n\tnamespace = %s\n\tpublisher = %s\n\treleaseDate = %s\n\trole = %s",
-                this.name, this.description, this.id, this.namespace, this.publisher, this.releaseDate, this.role);
+        return String.format("[ProjectEntity %s]\n\tdescription = %s\n\tid = %s\n\tnamespace = %s\n\tpublisher = %s\n\treleaseDate = %s\n\troles = %s",
+                this.name, this.description, this.id, this.namespace, this.publisher, this.releaseDate, this.roles);
     }
 }

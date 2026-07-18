@@ -1,0 +1,59 @@
+nav {
+  position: fixed;
+  z-index: 10;
+  transform: translate(-50%, 0);
+  left: 50%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: var(--nav-height);
+
+  margin-top: var(--nav-margin-top);
+  padding: var(--nav-padding-top) var(--nav-padding-sides) var(--nav-padding-top)
+    var(--nav-padding-sides);
+
+  width: calc(var(--website-width) - var(--nav-padding-sides) * 2);
+
+  cursor: default;
+  user-select: none;
+}
+
+/* 
+Nav bar background.
+Was done this was so i could add background blur.
+*/
+nav::before {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-clip: padding-box;
+  background-color: #161616;
+  background-position: center;
+  filter: opacity(50%);
+  backdrop-filter: blur(8rem);
+  border-bottom: 0.5rem solid var(--shadow-border-color);
+}
+
+#name-title {
+  font-weight: 200;
+  padding-left: 0.5rem;
+  margin: 0;
+}
+
+#links {
+  display: flex;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  #links a {
+    display: none;
+  }
+}

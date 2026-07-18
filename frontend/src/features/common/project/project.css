@@ -1,0 +1,33 @@
+.card {
+  /* magic number let's go! */
+  aspect-ratio: 3/2.3;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  aspect-ratio: 16/9;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: var(--font-size);
+  font-weight: lighter;
+}
+
+li {
+  list-style: none;
+  text-align: end;
+}
+
+h1,
+ul,
+p {
+  filter: opacity(50%);
+  margin: 0;
+  padding: 0;
+}

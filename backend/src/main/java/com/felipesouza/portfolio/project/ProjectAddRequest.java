@@ -12,5 +12,5 @@ public record ProjectAddRequest (
      MultipartFile logoImage,
      MultipartFile heroImage,
      String publisher,
-     String role
+     String roles
 ) {}
