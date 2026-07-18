@@ -5,7 +5,6 @@ import com.felipesouza.exceptions.ProjectNotFoundException;
 import com.felipesouza.util.DateHandler;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,6 +67,13 @@ public class ProjectService {
                 .collect(Collectors.toList());
     }
 
+    public List<SimpleProjectDTO> getSimplifiedProjects() {
+        return getProjects()
+                .stream()
+                .map(ProjectDTOMapper::simplify)
+                .collect(Collectors.toList());
+    }
+
 
     /**
      * Deletes the ProjectEntity with given ID.
@@ -101,9 +107,25 @@ public class ProjectService {
                     .namespace(request.namespace() == null ? oldDTO.namespace() : request.namespace())
                     .publisher(request.publisher() == null ? oldDTO.publisher() : request.publisher())
                     .releaseDate(releaseDate)
-                    .role(request.role() == null ? oldDTO.role() : request.role())
+                    .roles(request.roles() == null ? oldDTO.roles() : request.roles())
                     .build();
             this.saveProject(updatedProjectEntity);
+        } catch (ProjectNotFoundException e) {
+            throw new ProjectNotFoundException(e.getMessage(), e.getCause());
+        }
+    }
+
+
+    /**
+     * Returns a ProjectDTO based on the provided namespace
+     * @param namespace The namespace of the project.
+     * @return The ProjectEntity's {@code ProjectDTO}.
+     * @throws ProjectNotFoundException When the namespace doesn't belong to any ProjectEntity.
+     */
+    public ProjectDTO getProjectByNamespace(String namespace) throws ProjectNotFoundException {
+        try {
+            String projectId = this.getProjectId(namespace);
+            return this.getProjectById(projectId);
         } catch (ProjectNotFoundException e) {
             throw new ProjectNotFoundException(e.getMessage(), e.getCause());
         }
@@ -116,7 +138,7 @@ public class ProjectService {
      * @return The ProjectEntity's {@code ProjectDTO}.
      * @throws ProjectNotFoundException When the namespace doesn't belong to any ProjectEntity.
      */
-    public ProjectDTO getProjectByNamespace(String namespace) throws ProjectNotFoundException {
+    public ProjectDTO getSimpleProjectByNamespace(String namespace) throws ProjectNotFoundException {
         try {
             String projectId = this.getProjectId(namespace);
             return this.getProjectById(projectId);
@@ -149,7 +171,6 @@ public class ProjectService {
      */
     public void deleteProjectByNamespace(String namespace) throws ProjectNotFoundException {
         try {
-            String projectId = this.getProjectId(namespace);
             deleteProjectById(getProjectId(namespace));
         } catch (ProjectNotFoundException e) {
             throw new ProjectNotFoundException(e.getMessage(), e.getCause());
@@ -165,7 +186,7 @@ public class ProjectService {
                 .namespace(request.namespace())
                 .publisher(request.publisher())
                 .releaseDate(convertedDate)
-                .role(request.role())
+                .roles(request.roles())
                 .build();
     }
 }

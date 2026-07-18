@@ -1,0 +1,12 @@
+To-Do:
+
+* Hero Section
+  * Remove real-time cubemap and replace with static pre-rendered image
+
+* Highlights Section
+  * "Loading" animation
+  * Cache
+  * Can't edit projects
+
+* Get testimonials from server
+  * Endpoint

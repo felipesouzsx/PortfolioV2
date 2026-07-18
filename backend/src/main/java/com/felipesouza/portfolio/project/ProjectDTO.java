@@ -8,5 +8,5 @@ public record ProjectDTO(
         String namespace,
         String publisher,
         Date releaseDate,
-        String role
-    ) {};
+        String roles
+    ) {}

@@ -1,6 +1,5 @@
 package com.felipesouza.portfolio.project;
 
-import lombok.Getter;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -12,5 +11,5 @@ public record ProjectAddRequest (
      MultipartFile logoImage,
      MultipartFile heroImage,
      String publisher,
-     String role
+     String roles
 ) {}
