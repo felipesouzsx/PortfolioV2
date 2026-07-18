@@ -5,13 +5,6 @@ import { ref } from 'vue'
 
 let testimonials = ref<Object[]>([])
 let loaded = ref<boolean>(false)
-
-fetch('http://localhost:8080/testimonials').then(async (response) => {
-  let json = await response.json()
-  testimonials.value = json
-  loaded.value = true
-  console.log(json)
-})
 </script>
 
 <template>
