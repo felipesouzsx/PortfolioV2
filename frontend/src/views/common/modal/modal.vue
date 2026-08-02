@@ -4,7 +4,7 @@ import card from '../card/card.vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 
-let { isOpen, openModal, closeModal } = useModal();
+let { isOpen, content, closeModal } = useModal();
 
 const modal = ref(null);
 onClickOutside(modal, closeModal);
@@ -13,7 +13,7 @@ onClickOutside(modal, closeModal);
 <template>
   <div id="modal-container" v-if="isOpen">
     <card id="modal-card" ref="modal">
-      <h1>Test Modal</h1>
+      <component :is="content"></component>
     </card>
   </div>
 </template>
@@ -28,7 +28,7 @@ onClickOutside(modal, closeModal);
 
   background-color: rgba(0, 0, 0, 0.75);
 
-  height: 100dvh;
+  min-height: 100dvh;
   width: 100dvw;
   z-index: 10;
 
@@ -38,8 +38,11 @@ onClickOutside(modal, closeModal);
 
 #modal-card {
   width: min(var(--website-width), calc(100% - 4rem));
-  height: 100dvh;
-
   backdrop-filter: blur(5px);
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  /* old Internet Explorer/Edge */
+  -ms-overflow-style: none;
 }
 </style>
