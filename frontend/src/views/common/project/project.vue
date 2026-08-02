@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import card from '../card/card.vue'
+import useModal from '@/composables/useModal.ts';
+import card from '../card/card.vue';
 
-const props = defineProps(['project_data'])
-const hasData = props.project_data instanceof Object && Object.keys(props.project_data).length > 0
+const props = defineProps(['project_data']);
+const hasData = props.project_data instanceof Object && Object.keys(props.project_data).length > 0;
 
-let projectRoles: string[]
-if (hasData) projectRoles = props.project_data.roles.split(',')
+let projectRoles: string[];
+if (hasData) projectRoles = props.project_data.roles.split(',');
+
+let { isOpen, openModal, closeModal } = useModal();
 </script>
 
 <template>
-  <card class="project" :class="{ loading: !hasData }">
+  <card class="project" :class="{ loading: !hasData }" @click="openModal">
     <img
       :src="`https://images.felipemontsouza.com/${props.project_data.name}/hero.png`"
       :alt="props.project_data.name + 'logo'"

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useProject } from '@/composables/useProject.ts'
-import HighlightsHeader from './components/highlightsHeader.vue'
-import project from '@/views/common/project/project.vue'
-import { onMounted } from 'vue'
+import { useProject } from '@/composables/useProject.ts';
+import HighlightsHeader from './components/highlightsHeader.vue';
+import project from '@/views/common/project/project.vue';
+import { onMounted } from 'vue';
 
-const { projects, loading, loadProjects } = useProject()
+const { projects, loading, loadProjects } = useProject();
 
-onMounted(loadProjects)
+onMounted(loadProjects);
 </script>
 
 <template>

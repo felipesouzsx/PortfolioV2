@@ -1,15 +1,15 @@
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'http://localhost:8080';
 
 export class HttpClient {
   static async get<T>(url: string): Promise<T> {
     try {
-      const response = await fetch(BASE_URL + url)
+      const response = await fetch(BASE_URL + url);
       if (!response.ok) {
-        throw new Error(`Error fetching URL: ${response.status}`)
+        throw new Error(`Error fetching URL: ${response.status}`);
       }
-      return response.json()
+      return response.json();
     } catch (e) {
-      throw new Error('Error fetching URL')
+      throw new Error('Error fetching URL');
     }
   }
 }
