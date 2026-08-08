@@ -2,7 +2,6 @@
 import useModal from '@/composables/useModal.ts';
 import card from '../card/card.vue';
 import ProjectModal from '../modal/projectModal.vue';
-import Temp_longModal from '../modal/temp_longModal.vue';
 
 const props = defineProps(['project_data']);
 const hasData = props.project_data instanceof Object && Object.keys(props.project_data).length > 0;
@@ -13,7 +12,7 @@ if (hasData) projectRoles = props.project_data.roles.split(',');
 let { openModal } = useModal();
 
 function openProjectModal() {
-  openModal(Temp_longModal);
+  openModal(ProjectModal, { project_data: props.project_data });
 }
 </script>
 
@@ -39,5 +38,5 @@ function openProjectModal() {
 </template>
 
 <style scoped>
-@import url('./project.css');
+@import url('./projectCard.css');
 </style>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useProject } from '@/composables/useProject.ts';
 import HighlightsHeader from './components/highlightsHeader.vue';
-import project from '@/views/common/project/project.vue';
+import projectCard from '@/views/common/projectCard/projectCard.vue';
 import { onMounted } from 'vue';
 
 const { projects, loading, loadProjects } = useProject();
@@ -15,19 +15,19 @@ onMounted(loadProjects);
       <HighlightsHeader></HighlightsHeader>
 
       <div class="projects">
-        <project
+        <projectCard
           v-if="!loading"
           v-for="(project, index) in projects"
           :class="{ 'big-project': index < 2 }"
           :project_data="project"
-        ></project>
+        ></projectCard>
 
-        <project
+        <projectCard
           v-else
           v-for="index in 5"
           :class="{ 'big-project': index - 1 < 2 }"
           :project_data="{}"
-        ></project>
+        ></projectCard>
       </div>
     </div>
   </section>
