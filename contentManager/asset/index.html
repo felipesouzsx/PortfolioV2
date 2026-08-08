@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Felipe Portfolio - Content Manager</title>
+  <link rel="stylesheet" href="./global.css">
+  <link rel="stylesheet" href="./mpProject/index.css">
+  <script type="module" src="./randomWords.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>New Asset</h1>
+  </header>
+
+  <main>
+    <form action="http://localhost:8080/assets" method="post" id="projectForm" enctype="multipart/form-data">
+      <label for="project">Project</label>
+      <select id="project-select" name="project"></select>
+
+      <label for="assetImage">Choose Asset Logo</label>
+      <input type="file" name="assetImage" accept="image/webp" required>
+
+      <label for="description" class="large-textbox">Description</label>
+      <textarea name="description" cols="30" rows="10" placeholder="Description" maxlength="1024"></textarea>
+      
+      <input id="submit" type="submit" value="Submit" formenctype="multipart/form-data">
+    </form>
+  </main>
+</body>
+
+<script>
+  let projectSelect = document.getElementById('project-select')
+  fetch('http://localhost:8080/projects').then((resp) => {
+    resp.json().then((value) => {
+      value.forEach(element => {
+        projectSelect.insertAdjacentHTML('beforeend', `<option value=${element.id}>${element.name}</option>`)
+      });
+    })
+  })
+</script>
+</html>

@@ -1,0 +1,40 @@
+html {
+  --padding: 1ch;
+}
+
+
+textarea, input {
+  background-color: darkgray;
+}
+
+
+
+h1 {
+  text-align: center;
+}
+h2 {
+  margin-bottom: 0;
+  margin-top: 2ch;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form input[type="file"], input[type="date"] {
+  width: fit-content;
+}
+form label {
+  margin-top: var(--padding);
+  margin-bottom: 1ch;
+}
+form input {
+  margin-bottom: var(--padding);
+}
+
+form input[type="submit"] {
+  margin-top: 2ch;
+  padding: 1rem;
+  width: min-content;
+  align-self: center;
+}
