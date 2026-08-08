@@ -2,9 +2,5 @@ package com.felipesouza.portfolio.project;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
 
-
-public interface ProjectRepository extends JpaRepository<ProjectEntity, String> {
-    Optional<ProjectEntity> findByNamespace(String namespace);
-}
+public interface ProjectRepository extends JpaRepository<ProjectEntity, String> { }

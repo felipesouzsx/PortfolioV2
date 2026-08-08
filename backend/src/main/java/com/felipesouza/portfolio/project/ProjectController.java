@@ -1,6 +1,7 @@
 package com.felipesouza.portfolio.project;
 
 
+import com.felipesouza.exceptions.InvalidUuidException;
 import com.felipesouza.exceptions.MediaException;
 import com.felipesouza.exceptions.ProjectNotFoundException;
 import com.felipesouza.portfolio.media.MediaService;
@@ -19,20 +20,19 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5500"})
 public class ProjectController {
     private final ProjectService service;
-    private final MediaService media;
+    private final MediaService mediaService;
 
 
     @PostMapping(consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> postProject(@ModelAttribute ProjectAddRequest request) {
         try {
             service.addProject(request);
-            media.uploadFile(request.logoImage(), request.name(), "logo.png");
-            media.uploadFile(request.heroImage(), request.name(), "hero.png");
+            mediaService.uploadFile(request.logoImage(), request.name(), "logo.png");
+            mediaService.uploadFile(request.heroImage(), request.name(), "hero.png");
         } catch (MediaException e) {
             System.out.println(e.getMessage());
             return ResponseEntity.unprocessableContent().build();
         }
-
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -41,73 +41,35 @@ public class ProjectController {
         return ResponseEntity.ok(service.getProjects());
     }
 
-    @GetMapping("/simple")
-    public ResponseEntity<List<SimpleProjectDTO>> getAllProjectsSimple() {
-        return ResponseEntity.ok(service.getSimplifiedProjects());
-    }
-
-    @GetMapping(params = "namespace")
-    public ResponseEntity<ProjectDTO> getProject(@RequestParam String namespace) {
-        if (isNamespaceInvalid(namespace)) {
-            return ResponseEntity.badRequest().build();
-        }
+    @GetMapping(params = "id")
+    public ResponseEntity<ProjectDTO> getProject(@RequestParam String id) {
         try {
-            ProjectDTO project = service.getProjectByNamespace(namespace);
+            ProjectDTO project = service.getProjectById(id);
             return ResponseEntity.ok(project);
         } catch (ProjectNotFoundException e) {
             System.out.println(e.getMessage());
             return ResponseEntity.notFound().build();
+        } catch (InvalidUuidException e) {
+            return ResponseEntity.badRequest().build();
         }
     }
 
-    @GetMapping(path = "/simple", params = "namespace")
-    public ResponseEntity<SimpleProjectDTO> getSimpleProject(@RequestParam String namespace) {
-        if (isNamespaceInvalid(namespace)) {
-            return ResponseEntity.badRequest().build();
-        }
+    @PutMapping(params = "id")
+    public ResponseEntity<Void> updateProject(@RequestParam String id, @RequestBody ProjectAddRequest newProject) {
         try {
-            ProjectDTO project = service.getProjectByNamespace(namespace);
-            return ResponseEntity.ok(ProjectDTOMapper.simplify(project));
-        } catch (ProjectNotFoundException e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @PutMapping()
-    public ResponseEntity<Void> updateProject(@RequestParam String namespace, @RequestBody ProjectAddRequest newProject) {
-        if (isNamespaceInvalid(namespace)) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        try {
-            service.updateProjectByNamespace(namespace, newProject);
+            service.updateProjectById(id, newProject);
             return ResponseEntity.ok().build();
         } catch (ProjectNotFoundException e) {
             System.out.println(e.getMessage());
             return ResponseEntity.notFound().build();
+        } catch (InvalidUuidException e) {
+            return ResponseEntity.badRequest().build();
         }
     }
 
     @DeleteMapping()
-    public ResponseEntity<Void> deleteProject(@RequestParam String namespace) {
-        if (isNamespaceInvalid(namespace)) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        try {
-            service.deleteProjectByNamespace(namespace);
-            return ResponseEntity.ok().build();
-        } catch (ProjectNotFoundException e) {
-            System.out.println(e.getMessage());
-            return ResponseEntity.notFound().build();
-        }
-
-    }
-
-
-    private boolean isNamespaceInvalid(String namespace) {
-        int NAMESPACE_LEN = 8;
-        return namespace.length() > NAMESPACE_LEN || namespace.isEmpty();
+    public ResponseEntity<Void> deleteProject(@RequestParam String id) {
+        service.deleteProjectById(id);
+        return ResponseEntity.ok().build();
     }
 }
