@@ -16,14 +16,14 @@
 
   <main>
     <form action="http://localhost:8080/assets" method="post" id="projectForm" enctype="multipart/form-data">
-      <label for="project">Project</label>
-      <select id="project-select" name="project"></select>
+      <label for="project_id">Project</label>
+      <select id="project-select" name="project_id"></select>
 
       <label for="assetImage">Choose Asset Logo</label>
-      <input type="file" name="assetImage" accept="image/webp" required>
+      <input type="file" name="asset_img" accept="image/webp" required>
 
       <label for="description" class="large-textbox">Description</label>
-      <textarea name="description" cols="30" rows="10" placeholder="Description" maxlength="1024"></textarea>
+      <textarea name="description" cols="30" rows="10" placeholder="Description" maxlength="64"></textarea>
       
       <input id="submit" type="submit" value="Submit" formenctype="multipart/form-data">
     </form>
