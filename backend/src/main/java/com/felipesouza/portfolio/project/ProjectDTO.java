@@ -1,6 +1,9 @@
 package com.felipesouza.portfolio.project;
 
+import com.felipesouza.portfolio.asset.AssetDTO;
+
 import java.util.Date;
+import java.util.List;
 
 public record ProjectDTO(
         String id,
@@ -8,5 +11,6 @@ public record ProjectDTO(
         String description,
         String publisher,
         Date releaseDate,
-        String roles
+        String roles,
+        List<AssetDTO> assets
     ) {}

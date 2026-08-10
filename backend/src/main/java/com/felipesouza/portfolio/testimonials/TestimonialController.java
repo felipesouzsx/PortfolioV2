@@ -4,6 +4,9 @@ package com.felipesouza.portfolio.testimonials;
 import com.felipesouza.exceptions.MediaException;
 import com.felipesouza.exceptions.TestimonialNotFoundException;
 import com.felipesouza.portfolio.media.MediaService;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialAddRequest;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialDTO;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialUpdateRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -37,13 +40,11 @@ public class TestimonialController {
 
     @GetMapping
     public ResponseEntity<List<TestimonialDTO>> getAllTestimonials() {
-        log.info("Boo!");
         return ResponseEntity.ok(service.getTestimonials());
     }
 
     @GetMapping(params = "id")
     public ResponseEntity<TestimonialDTO> getTestimonial(@RequestParam String id) {
-        log.info(id);
         if (isIdInvalid(id)) return ResponseEntity.badRequest().build();
         try {
             return ResponseEntity.ok(service.getTestimonial(id));
@@ -55,7 +56,6 @@ public class TestimonialController {
 
     @PutMapping(params = "id")
     public ResponseEntity<Void> updateTestimonial(@RequestParam String id, @RequestBody TestimonialUpdateRequest newData) {
-        log.info(id);
         if (isIdInvalid(id)) return ResponseEntity.badRequest().build();
         try {
             service.updateTestimonial(id, newData);

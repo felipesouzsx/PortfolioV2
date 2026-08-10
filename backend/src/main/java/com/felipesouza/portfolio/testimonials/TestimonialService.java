@@ -1,6 +1,9 @@
 package com.felipesouza.portfolio.testimonials;
 
 import com.felipesouza.exceptions.TestimonialNotFoundException;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialAddRequest;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialDTO;
+import com.felipesouza.portfolio.testimonials.dto.TestimonialUpdateRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -25,6 +25,15 @@ public class ProjectService {
         this.dtoMapper = dtoMapper;
     }
 
+    private void saveProject(ProjectEntity projectEntity) {
+        this.repository.saveAndFlush(projectEntity);
+    }
+
+    public void addProject(ProjectAddRequest request) {
+        ProjectEntity newProject = this.getProjectFromRequest(request);
+        saveProject(newProject);
+    }
+
     /**
      * Gets the ProjectEntity with the given ID.
      * @param projectId The ProjectEntity's ID (UUIDv4).
@@ -39,17 +48,6 @@ public class ProjectService {
         ProjectEntity project = this.repository.findById(projectId)
                 .orElseThrow(() -> new ProjectNotFoundException("ID not found"));
         return dtoMapper.apply(project);
-    }
-
-    // Pretty self explainatory tbh wont make a doc out of this
-    public void saveProject(ProjectEntity projectEntity) {
-        this.repository.saveAndFlush(projectEntity);
-    }
-
-
-    public void addProject(ProjectAddRequest request) {
-        ProjectEntity newProject = this.getProjectFromRequest(request);
-        saveProject(newProject);
     }
 
 

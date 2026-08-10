@@ -12,7 +12,6 @@ import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.IOException;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -22,14 +21,14 @@ public class MediaService {
     @Value("${cloudflare.r2.bucket}")
     private String bucket;
 
-    public String uploadFile(MultipartFile file, String folder) throws UnsupportedMediaTypeException, FileUploadException {
-        String ogFileName = Optional.ofNullable(file.getOriginalFilename())
-                .orElseThrow(() -> new UnsupportedMediaTypeException("Filename is missing"))
-                .toLowerCase();
-        return uploadFile(file, folder, ogFileName);
-    }
-
-
+    /**
+     * Saves a file to the CDN.
+     * @param file MultipartFile object.
+     * @param folder Destination folder.
+     * @param fileName The name of the file.
+     * @throws UnsupportedMediaTypeException When Content-Type is unknown.
+     * @throws FileUploadException when the upload fails.
+     */
     public String uploadFile(MultipartFile file, String folder, String fileName) throws UnsupportedMediaTypeException, FileUploadException {
         String contentType = Optional.ofNullable(file.getContentType())
                 .orElseThrow(() -> new UnsupportedMediaTypeException("Content-Type is unknown"));

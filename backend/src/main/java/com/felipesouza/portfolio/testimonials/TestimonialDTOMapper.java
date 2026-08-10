@@ -1,5 +1,6 @@
 package com.felipesouza.portfolio.testimonials;
 
+import com.felipesouza.portfolio.testimonials.dto.TestimonialDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.function.Function;
