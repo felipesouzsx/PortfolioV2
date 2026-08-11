@@ -17,8 +17,12 @@ console.log(props.project_data.assets);
       :alt="props.project_data.name + 'logo'"
     />
 
-    <sectionTitle checkerboard="left">{{ props.project_data.name.toUpperCase() }}</sectionTitle>
-    <p>{{ props.project_data.publisher }}</p>
+    <div id="project-info">
+      <sectionTitle checkerboard="left">{{ props.project_data.name.toUpperCase() }}</sectionTitle>
+      <p>
+        by <strong>{{ props.project_data.publisher.toUpperCase() }}</strong>
+      </p>
+    </div>
 
     <p>
       {{ props.project_data.description }}
@@ -40,12 +44,25 @@ console.log(props.project_data.assets);
 #project-modal-container {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+}
+
+#project-info {
+  display: flex;
   gap: 2rem;
+  justify-content: space-between;
+}
+
+#project-info > p {
+  width: fit-content;
+  place-self: center;
+  font-weight: lighter;
+  opacity: 0.75;
 }
 
 #asset-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #project-hero {
