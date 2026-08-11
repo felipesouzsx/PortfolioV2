@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SectionTitle from '@/views/common/sectionTitle/sectionTitle.vue'
+import SectionTitle from '@/views/common/sectionTitle/sectionTitle.vue';
 </script>
 
 <template>
@@ -23,5 +23,13 @@ header {
 }
 p {
   width: fit-content;
+}
+
+@media only screen and (max-width: 1000px) {
+  header {
+    --margin: 1rem;
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+  }
 }
 </style>

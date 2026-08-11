@@ -71,7 +71,7 @@ nav::before {
 }
 
 @media only screen and (max-width: 1000px) {
-  #links a {
+  #links .sectionButton {
     display: none;
   }
 }

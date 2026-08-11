@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Card from '@/views/common/card/card.vue'
+import Card from '@/views/common/card/card.vue';
 </script>
 
 <template>
   <Card class="closed">
-    <h1>working for:</h1>
+    <p>working for:</p>
     <ul>
       <li>XP GAMES</li>
       <li>ETERNAL CREATIONS</li>
@@ -17,8 +17,6 @@ import Card from '@/views/common/card/card.vue'
 @import url('./statusCard.css');
 
 #not-seeking {
-  font-weight: 100;
-  font-size: 1rem;
   opacity: 50%;
   margin: 0;
   margin-top: 1rem;
@@ -27,7 +25,7 @@ import Card from '@/views/common/card/card.vue'
 ul {
   list-style: none;
   padding: 0;
-  font-size: 2rem;
+  font-size: var(--h2-font-size);
   font-weight: 500;
   margin: 0;
 }

@@ -1,6 +1,6 @@
 <template>
   <div id="container" class="unavailable">
-    <h1>Not looking for work right now,<br />but feel free to reach out!</h1>
+    <p>Not looking for work right now,<br />but feel free to reach out!</p>
     <div id="social-links">
       <img src="/assets/icons/discord.svg" alt="Discord" />
       <img src="/assets/icons/email.svg" alt="Discord" />

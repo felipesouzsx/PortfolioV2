@@ -1,9 +1,8 @@
 #container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  width: fit-content;
+  justify-content: right;
+  gap: 1rem;
 
   --font-size: var(--h1-font-size);
 }
@@ -28,17 +27,12 @@ img {
 
 .flip {
   flex-direction: row-reverse;
+  justify-content: left;
 }
 
 @media only screen and (max-width: 1000px) {
   #container {
-    --font-size: 3rem;
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  #container {
-    justify-content: space-evenly;
+    justify-content: center;
+    flex: 1;
   }
 }

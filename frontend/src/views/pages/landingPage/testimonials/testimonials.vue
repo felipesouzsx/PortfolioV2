@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import useTestimonial from '@/composables/useTestimonial.ts'
-import Testimonial from './components/testimonial/testimonial.vue'
-import TestimonialsHeader from './components/testimonialsHeader.vue'
-import { onMounted } from 'vue'
+import useTestimonial from '@/composables/useTestimonial.ts';
+import Testimonial from './components/testimonial/testimonial.vue';
+import TestimonialsHeader from './components/testimonialsHeader.vue';
+import { onMounted } from 'vue';
 
-const { testimonials, loading, loadTestimonials } = useTestimonial()
-onMounted(loadTestimonials)
+const { testimonials, loading, loadTestimonials } = useTestimonial();
+onMounted(loadTestimonials);
 </script>
 
 <template>
   <section>
     <div class="section-content">
-      <TestimonialsHeader></TestimonialsHeader>
+      <TestimonialsHeader id="header"></TestimonialsHeader>
       <div id="testimonial-container" v-if="!loading">
         <Testimonial v-for="data in testimonials" :data="data"></Testimonial>
       </div>
@@ -23,6 +23,10 @@ onMounted(loadTestimonials)
 </template>
 
 <style scoped>
+#header {
+  margin-bottom: 2rem;
+}
+
 #testimonial-container {
   --gap: 1rem;
 

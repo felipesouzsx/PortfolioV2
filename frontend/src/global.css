@@ -2,7 +2,7 @@
   --nav-margin-top: 1rem;
   --nav-height: 3rem;
   --nav-padding-sides: 1rem;
-  --nav-padding-top: 0.5rem;
+  --nav-padding-top: 00.75rem;
 
   --full-nav-height: calc(var(--nav-margin-top) + var(--nav-height) + (var(--nav-padding-top) * 2));
   --p-font-size: 1rem;
@@ -20,7 +20,7 @@
   color: var(--font-color);
   font-family: 'JetBrains Mono', monospace;
   font-weight: 100;
-  font-size: 1rem;
+  font-size: var(--p-font-size);
   scrollbar-width: 0; /* Works on newer browsers */
 }
 /* Works on older Safari and Chromium */
@@ -38,7 +38,7 @@
   flex-direction: column;
   justify-content: center;
   width: var(--website-width);
-  margin: 2rem;
+  margin-bottom: 2rem;
   margin-top: var(--full-nav-height);
   justify-content: space-between;
 }
@@ -48,9 +48,6 @@
 }
 :global(h2) {
   font-size: var(--h2-font-size);
-}
-:global(p) {
-  font-size: var(--p-font-size);
 }
 :global(a) {
   all: unset;
@@ -64,4 +61,12 @@
 :global(a:hover),
 :global(a:focus) {
   border-bottom: 1px solid var(--font-color);
+}
+
+@media only screen and (max-width: 1000px) {
+  :global(body) {
+    --p-font-size: 0.75rem;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.25rem;
+  }
 }
