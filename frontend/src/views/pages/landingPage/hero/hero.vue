@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef } from 'vue'
-import { Cubemap } from '@hatchibombotar/cubemap'
+import { onMounted, useTemplateRef } from 'vue';
+import { Cubemap } from '@hatchibombotar/cubemap';
 
-import HeroHeader from './components/header/heroHeader.vue'
-import SeeMore from './components/seeMore.vue'
+import HeroHeader from './components/header/heroHeader.vue';
+import SeeMore from './components/seeMore.vue';
 
 function createPanorama(container: HTMLElement) {
   const Panorama = new Cubemap(
@@ -17,35 +17,37 @@ function createPanorama(container: HTMLElement) {
       'assets/landingPage/pano5.png',
     ],
     { rotate_type: 'auto', rotate_speed: 1.5, width: '100dvw', height: '100dvh' },
-  )
-  return Panorama
+  );
+  return Panorama;
 }
 
 /*
 Cubemap breaks if you're not using hardware acceleration.
 Fallback to static image maybe? 
 */
-const cubemapContainer = useTemplateRef('cubemap-container')
+const cubemapContainer = useTemplateRef('cubemap-container');
 
 onMounted(() => {
   if (!cubemapContainer.value) {
-    return
+    return;
   }
-  let Panorama = createPanorama(cubemapContainer.value)
+  let Panorama = createPanorama(cubemapContainer.value);
   window.addEventListener('resize', () => {
-    Panorama.update()
-  })
-})
+    Panorama.update();
+  });
+});
 </script>
 
 <template>
-  <div id="cubemap" ref="cubemap-container"></div>
-  <section>
-    <div class="section-content">
-      <HeroHeader></HeroHeader>
-    </div>
-    <SeeMore></SeeMore>
-  </section>
+  <div id="hero-container">
+    <div id="cubemap" ref="cubemap-container"></div>
+    <section>
+      <div class="section-content">
+        <HeroHeader></HeroHeader>
+      </div>
+      <SeeMore></SeeMore>
+    </section>
+  </div>
 </template>
 
 <style scoped>

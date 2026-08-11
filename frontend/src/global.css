@@ -7,7 +7,7 @@
   --full-nav-height: calc(var(--nav-margin-top) + var(--nav-height) + (var(--nav-padding-top) * 2));
   --p-font-size: 1rem;
   --h1-font-size: 4rem;
-  --h2-font-size: 1rem;
+  --h2-font-size: 2rem;
   --font-color: #f4efe7;
   --website-width: min(100ch, calc(100% - 3rem));
 

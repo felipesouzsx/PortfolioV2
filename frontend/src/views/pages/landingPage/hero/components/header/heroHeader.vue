@@ -7,7 +7,7 @@
       </h1>
       <img src="/assets/landingPage/whiteCheckerboard.svg" alt="checkerboard" />
     </div>
-    <h2>Pixel Artist | 3D Artist</h2>
+    <p>Pixel Artist | 3D Artist</p>
   </header>
 </template>
 

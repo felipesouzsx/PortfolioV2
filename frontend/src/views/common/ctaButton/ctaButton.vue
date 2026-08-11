@@ -1,3 +1,10 @@
+<template>
+  <button>
+    <slot></slot>
+  </button>
+</template>
+
+<style scoped>
 button {
   all: unset;
   text-decoration: none;
@@ -25,5 +32,8 @@ button:focus {
 }
 
 button:active {
-  background-color: red;
+  transition: 0ms;
+  transform: translateY(0.05rem);
+  border-bottom: 0.5rem solid transparent;
 }
+</style>

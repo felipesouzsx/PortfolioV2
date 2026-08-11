@@ -34,11 +34,10 @@ nav::before {
   height: 100%;
 
   background-clip: padding-box;
-  background-color: #161616;
+  background-color: rgba(0, 0, 0, 0.75);
   background-position: center;
   filter: opacity(50%);
-  backdrop-filter: blur(8rem);
-  border-bottom: 0.5rem solid var(--shadow-border-color);
+  backdrop-filter: blur(10px);
 }
 
 #name-title {
@@ -50,6 +49,25 @@ nav::before {
 #links {
   display: flex;
   gap: 1rem;
+}
+
+.sectionButton::after {
+  content: ' >';
+}
+
+.sectionButton {
+  all: unset;
+  opacity: 0.5;
+
+  cursor: pointer;
+}
+
+#name {
+  opacity: 1;
+}
+
+.sectionButton:hover {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 1000px) {
