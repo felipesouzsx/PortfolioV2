@@ -3,6 +3,7 @@ import useModal from '@/composables/useModal.ts';
 import card from '../card/card.vue';
 import { ref, Transition } from 'vue';
 import { onClickOutside } from '@vueuse/core';
+import CtaButton from '../ctaButton/ctaButton.vue';
 
 let { isOpen, content, contentProps, closeModal } = useModal();
 
@@ -16,9 +17,9 @@ onClickOutside(modal, closeModal);
       <card id="modal-card" ref="modal">
         <component :is="content" v-bind="contentProps"></component>
       </card>
-      <button id="close-button">
+      <cta-button id="close-button" v-on:click="closeModal">
         <img src="/assets/icons/close.svg" alt="" />
-      </button>
+      </cta-button>
     </div>
   </transition>
 </template>
@@ -67,27 +68,17 @@ onClickOutside(modal, closeModal);
 }
 
 #close-button {
-  all: unset;
-
   position: fixed;
-  right: calc((100vw - var(--website-width)) / 2 + 4rem);
-  top: 2rem;
+  right: calc((100vw - var(--website-width)) / 2 + 3rem);
+  top: 0.5rem;
 
-  background-color: var(--element-bg-color);
-  border: 1px solid rgba(244, 239, 231, 0.25);
-  backdrop-filter: blur(10px);
-
-  box-sizing: padding-box;
-  width: 3rem;
-  height: 3rem;
-
-  display: flex;
-  place-items: center;
-  justify-content: center;
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 #close-button > img {
-  width: 75%;
-  height: 75%;
+  width: 100%;
+  height: 100%;
 }
 </style>
